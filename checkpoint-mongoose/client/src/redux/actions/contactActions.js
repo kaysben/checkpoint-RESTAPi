@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export const getcontacts=()=> async ( dispatch )=>{
     try {
-        const res= await axios.get('/contact')
+        const res= await axios.get('/contacts')
 
 
         dispatch({type:GET_CONTACTS,payload:res.data})
@@ -55,7 +55,7 @@ export const toggletrue=()=>{
 export const togglefalse=()=>{
     return{type:TOGGLE_FALSE}
 }
-export const editcontact=(id,updatedinf,navigate)=>async (dispatch)=>{
+export const editcontact=(id,updatedinfo,navigate)=>async (dispatch)=>{
     try {
         const res=await axios.put(`/contacts/${id}`,updatedinfo)
         dispatch(getcontacts())

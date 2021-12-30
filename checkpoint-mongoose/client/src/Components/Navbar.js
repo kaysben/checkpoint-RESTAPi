@@ -14,8 +14,8 @@ function Navbare() {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link as = {Link} to='/contacts' onclick={()=>dispatch(getcontacts())}    >contacts</Nav.Link>
-        <Nav.Link as = {Link} to='/addcontact' onclick={()=>dispatch(togglefalse())}     >Add</Nav.Link>
+        <Nav.Link as = {Link} to='/contacts' onClick={()=>dispatch(getcontacts())}    >contacts</Nav.Link>
+        <Nav.Link as = {Link} to='/addcontact' onClick={()=>dispatch(togglefalse())}     >Add</Nav.Link>
        
       </Nav>
     </Navbar.Collapse>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
-import { addcontact, editcontact } from '../redux/actions/contactActions'
+import { addcontact, editcontact, getcontact } from '../redux/actions/contactActions'
 import {useNavigate} from 'react-router-dom'
 function AddContact() {
     const [email,setEmail]=useState('')
@@ -9,15 +9,20 @@ function AddContact() {
     const [age,setAge]=useState(0)
     const dispatch = useDispatch()
     const navigate=useNavigate()
-    const contact = useSelector(state => state.contactReducer.contact)
-    const edit = useSelector(state => state.contactReducer.edit)
 
+
+    const [loding, setLoding]= useState(false)
+
+
+   
+    const edit = useSelector(state => state.ContactReducer.edit)
+    const contact = useSelector(state => state.ContactReducer.contact)
 
 
 useEffect(() => {
-if (edit)  {setName(contact.name);setEmail(contact.email);setAge(contact.age)}
+if (edit && edit)  {setName(contact && contact.name);setEmail(contact && contact.email);setAge(contact && contact.age)}
 else {setName('');setEmail('');setAge(0)}
-}, [])
+}, [edit,contact])
 
 
 
@@ -40,9 +45,15 @@ else {setName('');setEmail('');setAge(0)}
     <Form.Control onChange={(e)=>setAge(e.target.value)} value={age} type="number" placeholder="enter your age" />
   </Form.Group>
   
-  {edit ? <Button variant="primary" onClick={(e)=>{e.preventDefault();dispatch(editcontact(contact._id,{name,age,email},navigate))}}      type="submit">
+  
+  
+  
+  {edit && edit ? <Button variant="primary" onClick={(e)=>{e.preventDefault();dispatch(editcontact(contact._id,{name,age,email},navigate))}}      type="submit">
     Edit contact
-  </Button>: <Button variant="primary" onClick={(e)=>{e.preventDefault();dispatch(addcontact({name,age,email},navigate))}}      type="submit">
+  </Button>:
+  
+  
+  <Button variant="primary" onClick={(e)=>{e.preventDefault();dispatch(addcontact({name,age,email},navigate))}}      type="submit">
     Add contact
   </Button>}
  

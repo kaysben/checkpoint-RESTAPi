@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Contactdetails() {
-    const contact = useSelector(state => state.ContactReducers.contact)
+    const contact = useSelector(state => state.ContactReducer.contact)
     return (
         <div>
             <h1>{contact.name}</h1>

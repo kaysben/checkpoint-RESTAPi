@@ -11,7 +11,7 @@ function App() {
     <div className="App">
      <Navbare/>
      <Routes>
-       <Route  path='/contacts'  element={<ContactList></ContactList>}  />
+       <Route  path='/contacts'  element={<ContactList/>}  />
        <Route  path='/addcontact' element={<AddContact></AddContact>}   ></Route>
        <Route  path='/edit/:id' element={<AddContact></AddContact>}   ></Route>
 

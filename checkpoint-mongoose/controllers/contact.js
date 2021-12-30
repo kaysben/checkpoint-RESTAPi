@@ -35,7 +35,7 @@ exports.getOneContact=async(req,res)=>{
 exports.DeleteContact=async(req,res)=>{
     const {id}=req.params
     try {
-        const deleted=ContactSchema.findByIdAndDelete(id)
+        const deleted= await ContactSchema.findByIdAndDelete(id)
         res.status(200).send({msg:"contact deleted",deleted})
         
     } catch (error) {

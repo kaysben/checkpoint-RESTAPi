@@ -16,7 +16,7 @@ const dispatch = useDispatch ()
       the card's content.
     </Card.Text>
     <Button variant="primary" onClick={()=>dispatch(deletecontact(contact._id))}     >DELETE</Button>
-     <Link  to={`/edit/${contact._id}`}     >    <Button variant="primary" onclick={()=>{dispatch(getcontact(contact._id));dispatch(toggletrue())}}    >EDIT</Button></Link>
+     <Link  to={`/edit/${contact._id}`}     >    <Button variant="primary" onClick={()=>{dispatch(getcontact(contact._id));dispatch(toggletrue())} }   >EDIT</Button></Link>
     <Link to={`/contacts/${contact._id}`} >  <Button variant="primary" onClick={()=>dispatch(getcontact(contact._id))}      >Details</Button></Link>
   </Card.Body>
 </Card>
